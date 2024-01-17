@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% load staticfiles %} 
+
 <html>
     <head>
         <title>Rango</title>
@@ -12,7 +14,8 @@
         </div>
         <div>
             <a href="/rango/about">About</a><br />
+            <img src="{%static 'images/rango.png' %}" alt="Picture of Rango" /> <!-- This is an html comment -->
         </div>
     </body>
-    
+
 </html>

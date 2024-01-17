@@ -1,2 +1,9 @@
 #Ignore Database File
 db.sqlite3
+
+#Other Ignore Files
+*.pyc
+*.DS_Store
+__pycache__/
+*.key
+thumbs.db

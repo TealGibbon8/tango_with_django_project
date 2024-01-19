@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango', # Add the Rango app
+    #'rango.apps.RangoConfig',
 ]
 
 MIDDLEWARE = [

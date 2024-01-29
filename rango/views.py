@@ -38,8 +38,8 @@ def add_category(request):
     if request.method == 'POST':
         form = CategoryForm(request.POST)
         if form.is_valid():
-            form.save(commit=True)
-
+            cat = form.save(commit=True)
+            print(cat, cat.slug)
             return redirect('/rango/')
         else:
             print(form.errors)

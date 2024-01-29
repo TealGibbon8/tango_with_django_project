@@ -3,9 +3,11 @@ import datetime
 from django.utils import timezone
 from django.template.defaultfilters import slugify
 
+name_max_length = 128
+title_max_length = 128
 # Create your models here.
 class Category(models.Model):
-    name = models.CharField(max_length=128, unique=True)
+    name = models.CharField(max_length=name_max_length, unique=True)
     views = models.IntegerField(default=0) # default value for views
     likes = models.IntegerField(default=0) # default value for likes
     slug = models.SlugField(unique=True)
@@ -21,9 +23,14 @@ class Category(models.Model):
     
 class Page(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    title = models.CharField(max_length=128)
+    title = models.CharField(max_length=title_max_length)
     url = models.URLField()
     views = models.IntegerField(default=0)
+    slug = models.SlugField(unique=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Page, self).save(*args,**kwargs)
 
     def __str__(self):
         return self.title

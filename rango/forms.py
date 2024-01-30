@@ -3,7 +3,7 @@ from rango.models import *
 
 #Form Classes Here
 class CategoryForm(forms.ModelForm):
-    name = forms.CharField(max_length=name_max_length, help_text="Please enter the category name.")
+    name = forms.CharField(max_length=Category.name_max_length, help_text="Please enter the category name.")
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     likes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     slug = forms.CharField(widget=forms.HiddenInput(),required=False)
@@ -13,8 +13,8 @@ class CategoryForm(forms.ModelForm):
         fields = ('name',)
     
 class PageForm(forms.ModelForm):
-    title = forms.CharField(max_length=title_max_length, help_text="Please enter the title of the page.")
-    url = forms.URLField(max_length=200, help_text="Please enter the URL of the page.")
+    title = forms.CharField(max_length=Page.title_max_length, help_text="Please enter the title of the page.")
+    url = forms.URLField(max_length=Page.url_max_length, help_text="Please enter the URL of the page.")
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 
     class Meta:

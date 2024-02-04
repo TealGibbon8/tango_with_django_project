@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango', # Add the Rango app
+    'registration',
     #'rango.apps.RangoConfig',
 ]
 
@@ -144,3 +145,9 @@ MEDIA_URL = '/media/'
 # Cookies
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 SESSION_COOKIE_AGE = 1209600
+
+#Registration
+REGISTRATION_OPEN = True
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = 'rango:index'
+LOGIN_URL = 'auth_login'
